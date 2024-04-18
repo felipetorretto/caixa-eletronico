@@ -15,7 +15,7 @@ class AccountTest extends TestCase
         // arrange
         $mock = Mockery::mock(AccountRepository::class)
             ->shouldReceive('getBalance')
-            ->andReturn(100)
+            ->andReturn(10000)
             ->getMock();
         $sut = new Account(1, $mock);
 
@@ -23,19 +23,19 @@ class AccountTest extends TestCase
         $balance = $sut->getBalance();
 
         // assert
-        $this->assertEquals(100, $balance);
+        $this->assertEquals(10000, $balance);
     }
 
     public function testWithdrawWhenTheAccountHasEnoughBalance()
     {
         // arrange
         $mock = Mockery::mock(AccountRepository::class)
-            ->shouldReceive('getBalance')->andReturn(100)->getMock()
+            ->shouldReceive('getBalance')->andReturn(10000)->getMock()
             ->shouldReceive('updateBalance')->with(1, 0)->getMock();
         $sut = new Account(1, $mock);
 
         // act
-        $sut->withdraw(100);
+        $sut->withdraw(10000);
 
         // assert
         $this->assertTrue(true);
@@ -49,11 +49,11 @@ class AccountTest extends TestCase
 
         // arrange
         $mock = Mockery::mock(AccountRepository::class)
-            ->shouldReceive('getBalance')->andReturn(100)->getMock();
+            ->shouldReceive('getBalance')->andReturn(10000)->getMock();
         $sut = new Account(1, $mock);
 
         // act
-        $sut->withdraw(101);
+        $sut->withdraw(10100);
 
         // assert
         $mock->shouldNotHaveReceived('updateBalance');

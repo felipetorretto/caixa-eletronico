@@ -15,7 +15,7 @@ class Account
         $this->accountRepository = $accountRepository;
     }
 
-    public function getBalance(): float
+    public function getBalance(): int
     {
         return $this->accountRepository->getBalance($this->id);
     }
