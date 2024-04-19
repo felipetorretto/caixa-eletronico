@@ -53,3 +53,15 @@ Execute os testes automatizados com Code Coverage:
 ```bash
 vendor/bin/phpunit --coverage-html coverage
 ```
+
+## Testes de Comportamento
+
+Os testes de comportamento são testes que validam o comportamento do sistema como um todo.
+
+Eles são escritos em linguagem natural e são executados por ferramentas como o Behat.
+
+Execute os testes de comportamento do projeto com o comando:
+
+```bash
+vendor/bin/behat
+```
