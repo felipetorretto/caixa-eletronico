@@ -1,6 +1,9 @@
 <?php
 
+namespace Tests\Feature\Bootstrap;
+
 use Behat\Behat\Context\Context;
+use Exception;
 use FelipeTorretto\ATM\Components\Withdraw\Domain\Account as AccountEntity;
 use FelipeTorretto\ATM\Components\Withdraw\Infrastructure\Repositories\AccountRepository;
 use FelipeTorretto\ATM\Models\Account as AccountModel;
