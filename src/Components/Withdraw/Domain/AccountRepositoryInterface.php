@@ -2,7 +2,7 @@
 
 namespace FelipeTorretto\ATM\Components\Withdraw\Domain;
 
-interface AccountRepository
+interface AccountRepositoryInterface
 {
     /**
      * @param int $id

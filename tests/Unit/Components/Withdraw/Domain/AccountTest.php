@@ -4,7 +4,7 @@ namespace Tests\Unit\Components\Withdraw\Domain;
 
 use Exception;
 use FelipeTorretto\ATM\Components\Withdraw\Domain\Account;
-use FelipeTorretto\ATM\Components\Withdraw\Domain\AccountRepository;
+use FelipeTorretto\ATM\Components\Withdraw\Domain\AccountRepositoryInterface;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +13,7 @@ class AccountTest extends TestCase
     public function testGetBalance()
     {
         // arrange
-        $mock = Mockery::mock(AccountRepository::class)
+        $mock = Mockery::mock(AccountRepositoryInterface::class)
             ->shouldReceive('getBalance')
             ->andReturn(10000)
             ->getMock();
@@ -29,7 +29,7 @@ class AccountTest extends TestCase
     public function testWithdrawWhenTheAccountHasEnoughBalance()
     {
         // arrange
-        $mock = Mockery::mock(AccountRepository::class)
+        $mock = Mockery::mock(AccountRepositoryInterface::class)
             ->shouldReceive('getBalance')->andReturn(10000)->getMock()
             ->shouldReceive('updateBalance')->with(1, 0)->getMock();
         $sut = new Account(1, $mock);
@@ -48,7 +48,7 @@ class AccountTest extends TestCase
         $this->expectExceptionMessage('Insufficient funds');
 
         // arrange
-        $mock = Mockery::mock(AccountRepository::class)
+        $mock = Mockery::mock(AccountRepositoryInterface::class)
             ->shouldReceive('getBalance')->andReturn(10000)->getMock();
         $sut = new Account(1, $mock);
 

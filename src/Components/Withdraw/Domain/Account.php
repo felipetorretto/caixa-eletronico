@@ -9,7 +9,7 @@ class Account
     protected $id;
     protected $accountRepository;
 
-    public function __construct(int $id, AccountRepository $accountRepository)
+    public function __construct(int $id, AccountRepositoryInterface $accountRepository)
     {
         $this->id = $id;
         $this->accountRepository = $accountRepository;
