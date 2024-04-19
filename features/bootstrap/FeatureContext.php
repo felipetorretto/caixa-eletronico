@@ -33,6 +33,31 @@ class FeatureContext implements Context
     }
 
     /**
+     * @BeforeScenario
+     */
+    public function beginTransaction()
+    {
+        DB::beginTransaction();
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function rollbackTransaction()
+    {
+        DB::rollBack();
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function finishTransaction()
+    {
+        // Rollback the transaction
+        DB::rollBack();
+    }
+
+    /**
      * @When /^uma conta com saldo de "([^"]*)"$/
      */
     public function umaContaComSaldoDe($arg1)
