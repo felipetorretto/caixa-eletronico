@@ -13,7 +13,7 @@ default:
             'src/Components': ~
       reports:
         html:
-          target: coverage/behat
+          target: '%paths.base%/coverage/behat'
           lowUpperBound: 70
           highLowerBound: 90
         text:
