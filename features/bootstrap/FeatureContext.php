@@ -9,6 +9,10 @@ use Illuminate\Database\Capsule\Manager as DB;
 class FeatureContext implements Context
 {
     protected $account;
+    /**
+     * @var Exception
+     */
+    private $exception;
 
     public function __construct()
     {
@@ -43,9 +47,13 @@ class FeatureContext implements Context
      */
     public function oClienteSolicitarUmSaqueDe($arg1)
     {
-        $repository = new AccountRepository();
-        $account = new AccountEntity($this->account->id, $repository);
-        $account->withdraw($arg1);
+        try {
+            $repository = new AccountRepository();
+            $account = new AccountEntity($this->account->id, $repository);
+            $account->withdraw($arg1);
+        } catch (Exception $e) {
+            $this->exception = $e;
+        }
     }
 
     /**
@@ -63,6 +71,16 @@ class FeatureContext implements Context
         $this->account->refresh();
         if ($this->account->balance != $arg1) {
             throw new Exception('Balance is not the expected value');
+        }
+    }
+
+    /**
+     * @When /^o saque deve ser negado$/
+     */
+    public function oSaqueDeveSerNegado()
+    {
+        if (is_null($this->exception)) {
+            throw new Exception('Exception not thrown');
         }
     }
 }
