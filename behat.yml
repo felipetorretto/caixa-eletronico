@@ -5,3 +5,16 @@ default:
     default:
       paths: [ '%paths.base%/tests/Feature' ]
       contexts: [ Tests\Feature\Bootstrap\FeatureContext ]
+  extensions:
+    DVDoug\Behat\CodeCoverage\Extension:
+      filter:
+        include:
+          directories:
+            'src/Components': ~
+      reports:
+        html:
+          target: coverage/behat
+          lowUpperBound: 70
+          highLowerBound: 90
+        text:
+          showColors: true

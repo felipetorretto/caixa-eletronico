@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef0e45784e595946356f16c930696d64",
+    "content-hash": "d020e1ee0d8340c5bd0d1c832c068c3b",
     "packages": [
         {
             "name": "cakephp/cache",
@@ -2234,6 +2234,97 @@
                 }
             ],
             "time": "2022-12-30T00:15:36+00:00"
+        },
+        {
+            "name": "dvdoug/behat-code-coverage",
+            "version": "v5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dvdoug/behat-code-coverage.git",
+                "reference": "ac8d78e65d988ac9ebf97e837a5ad84634761775"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dvdoug/behat-code-coverage/zipball/ac8d78e65d988ac9ebf97e837a5ad84634761775",
+                "reference": "ac8d78e65d988ac9ebf97e837a5ad84634761775",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.5",
+                "php": "^7.1 || ^8.0",
+                "phpunit/php-code-coverage": "^6.0.1||^7.0.2||^8.0||^9.0",
+                "symfony/config": "^3.4||^4.0||^5.0",
+                "symfony/console": "^3.4||^4.0||^5.0",
+                "symfony/dependency-injection": "^3.4||^4.0||^5.0",
+                "symfony/event-dispatcher": "^3.4||^4.0||^5.0"
+            },
+            "replace": {
+                "leanphp/behat-code-coverage": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16.3",
+                "phpunit/phpunit": "^7.0||^8.0||^9.0",
+                "symfony/filesystem": "^3.4||^4.0||^5.0"
+            },
+            "suggest": {
+                "ext-pcov": "PCOV allows you to collect line coverage only, but is faster than Xdebug",
+                "ext-xdebug": "Xdebug allows you to collect line, branch and path coverage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DVDoug\\Behat\\CodeCoverage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Doug Wright",
+                    "role": "Developer"
+                },
+                {
+                    "name": "ek9",
+                    "email": "dev@ek9.co",
+                    "homepage": "https://ek9.co"
+                },
+                {
+                    "name": "Anthon Pang",
+                    "email": "apang@softwaredevelopment.ca"
+                }
+            ],
+            "description": "Generate Code Coverage reports for Behat tests",
+            "homepage": "https://github.com/dvdoug/behat-code-coverage",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "build",
+                "clover",
+                "code",
+                "code-coverage",
+                "coverage",
+                "generate",
+                "generation",
+                "report",
+                "reports",
+                "scenario",
+                "test",
+                "tests"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/dvdoug",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-09-13T11:59:18+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
